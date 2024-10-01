@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+  --swiper-theme-color: #007aff;
+}
+
+html,
+body {
+  font-family: "Lexend", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.25rem;
+  background-color: cornflowerblue;
+  border-radius: 0.125rem;
+}
+
+.text-dark-text {
+  --tw-text-opacity: 1;
+  color: rgb(121 128 138 / var(--tw-text-opacity));
+}
