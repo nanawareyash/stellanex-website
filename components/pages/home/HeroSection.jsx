@@ -25,42 +25,32 @@ function HeroSection() {
   });
   return (
     <section
-      className="w-dvw relative flex justify-center items-end md:items-center bg-cover bg-center transition-all duration-700"
-      style={{
-        minHeight: "calc(100svh - 80px)",
-        backgroundImage: bgImages[activeBackground],
-      }}
+      className="w-dvw relative flex justify-center items-center py-10"
+      style={{ minHeight: "calc(100svh - 80px)" }}
     >
-      <div className="relative w-full md:w-[90%] lg:w-[85%] xl:w-[85%]">
-        <div className="flex flex-col gap-5 xl:gap-10 p-3 md:p-5 bg-black/50 backdrop-blur-sm md:rounded-2xl">
-          <div className="w-full flex flex-col gap-1 lg:gap-3 sm:items-start overflow-hidden">
-            <p className="w-fit text-white/80 drop-shadow-2xl text-sm md:text-[1rem] lg:text-lg xl:text-xl 2xl:text-2xl text-nowrap font-extrabold uppercase tracking-widest">
-              Stellanex Metaverse
-            </p>
-            <p className="w-fit flex flex-col gap-0.5 leading-10 text-white drop-shadow-2xl text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-wider">
-              <span> Our dynamic virtual</span>
-              <span>world lets you</span>
-              <DynamicWordSlider
-                className="w-fit from-red-400 via-pink-700 via-30% to-blue-400 bg-gradient-to-br bg-clip-text text-transparent drop-shadow-2xl text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-wider"
-                words={["shop", "play", "own property", "do business"]}
-              />
-            </p>
-          </div>
-          <div className="w-full md:w-1/2">
-            <p className="w-fit text-white text-sm md:text-[1rem] lg:text-lg xl:text-xl 2xl:text-2xl">
-              Join Stellanex today to explore, create, and connect in our
-              blockchain-powered virtual universe. Whether you&apos;re a
-              creator, business owner, or gamer, the future is here for you.
-            </p>
-          </div>
-          <div className="flex gap-3">
-            <Button className="bg-blue-600 text-white border-1 border-blue-600 text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
+      <div className="relative w-[90%] lg:w-[85%] xl:w-[85%] flex flex-col-reverse md:flex-row items-center gap-20 md:gap-5 md:justify-between">
+        <div className="w-full md:w-[40%] mb-9 md:mb-0 text-center md:text-left">
+          <p className="w-full md:w-fit flex flex-col gap-0.5 mb-9 text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
+            <span> Our dynamic virtual</span>
+            <span>world lets you</span>
+            <DynamicWordSlider
+              className="w-full md:w-fit text-center md:text-left from-red-400 via-pink-400 via-50% to-primary bg-gradient-to-br bg-clip-text text-transparent text-3xl font-semibold sm:text-4xl md:text-[50px] md:leading-[60px]"
+              words={["shop", "play", "own property", "do business"]}
+            />
+          </p>
+          <p className="mb-12 text-base text-dark-text">
+            Join Stellanex today to explore, create, and connect in our
+            blockchain-powered virtual universe. Whether you&apos;re a creator,
+            business owner, or gamer, the future is here for you.
+          </p>
+          <div className="flex justify-center md:justify-start gap-3">
+            <Button className="bg-blue-600 rounded text-white border-1 border-blue-600 text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
               <span>Get Started</span>
               <span>
                 <i className="bi bi-arrow-right"></i>
               </span>
             </Button>
-            <Button className="bg-transparent text-white border-1 text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
+            <Button className="bg-transparent rounded text-white border-1 text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
               <span>
                 <i className="bi bi-play-fill"></i>
               </span>
@@ -68,26 +58,23 @@ function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-full w-full flex justify-center h-[15rem] md:hidden">
-          <Image
-            alt="VR Avatar"
-            disableSkeleton
-            disableAnimation
-            src="/images/vr_avatar.png"
-            className="h-full"
-          />
+        <div className="w-full md:w-[55%] relative">
+          <span
+            class="block rounded absolute -inset-0 bg-primary blur"
+            aria-hidden="true"
+          ></span>
+          <video
+            loop
+            autoPlay
+            playsInline
+            disableRemotePlayback
+            muted
+            className="rounded relative object-cover aspect-video w-full md:h-full"
+          >
+            <source src="/videos/hero_section.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 hidden md:block md:h-[75%] lg:h-[90%] xl:h-full will-change-transform">
-        <Image
-          alt="VR Avatar"
-          disableSkeleton
-          src="/images/vr_avatar.png"
-          className="h-full animate-slideLeft"
-          fetchPriority="high"
-        />
-      </div>
-      <div className="z-10 hidden md:block absolute bottom-0 w-full h-20 from-transparent to-slate-950 bg-gradient-to-b"></div>
     </section>
   );
 }
