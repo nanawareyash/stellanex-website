@@ -4,25 +4,27 @@ import { useEffect, useState } from "react";
 
 import { Divider } from "@nextui-org/react";
 
+import StellaNexCoin from "@/images/stellanex_coin.svg";
+
 function AboutSection() {
   const [visibleFeature, setVisibleFeature] = useState(0);
 
   const stellanexFeatures = [
     {
       title: "Blockchain Security",
-      background: "url('/images/blockchain_security.jpg')",
+      icon: <i className="bi bi-shield-check"></i>,
       description:
         "Your transactions are safe, transparent, and secured by Ethereum's trusted blockchain.",
     },
     {
       title: "Smart Contracts",
-      background: "url('/images/smart_contracts.jpg')",
+      icon: <i className="bi bi-fingerprint"></i>,
       description:
         "Automated and self-executing agreements ensure secure and transparent transactions.",
     },
     {
       title: "NFTs and Digital Assets",
-      background: "url('/images/nft_token.jpg')",
+      icon: <StellaNexCoin />,
       description: "Trade unique digital items that hold real value.",
     },
   ];
@@ -38,61 +40,46 @@ function AboutSection() {
 
   return (
     <section
-      className="relative w-dvw flex justify-center items-center py-10 md:py-0"
+      className="relative w-dvw flex justify-center py-20 bg-slate-900"
       style={{
         minHeight: "calc(100svh - 80px)",
       }}
     >
-      <div className="z-20 w-[90%] lg:w-[85%] xl:[80%] grid grid-cols-1 md:grid-cols-2 items-center gap-5 xl:gap-10">
-        <div className="flex flex-col gap-5">
-          <p className="font-semibold tracking-widest text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+      <div className="z-20 relative w-[90%] lg:w-[85%] xl:[80%] flex flex-col gap-5 md:gap-10">
+        <div className="w-full flex flex-col items-center mb-9">
+          <p className="mb-5 text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px] text-center">
             About Us
           </p>
-          <Divider className="bg-white w-[6rem]" />
-          <p className="text-white text-justify text-[1rem] md:text-lg lg:text-xl xl:text-2xl drop-shadow-2xl">
-            <span className="font-semibold text-blue-300">Stellanex</span> is
-            India&apos;s pioneering Metaverse platform, built on the secure{" "}
-            <span className="text-yellow-400 underline underline-offset-4 font-semibold">
-              Ethereum blockchain
+          <p className="w-full md:w-[80%] text-base text-dark-text text-center">
+            Stellanex is India&apos;s pioneering Metaverse platform, built on
+            the secure{" "}
+            <span className="relative mx-1.5 whitespace-nowrap">
+              <span className="block absolute -inset-0.5 -skew-y-1 bg-primary"></span>
+              <span className="text-white font-semibold relative">
+                Ethereum blockchain.
+              </span>
             </span>
-            . In this immersive virtual world, you can explore, shop, and
-            interact in ways that mirror real-life activities like buying
-            property, playing games, and running a business. Stellanex brings
-            the future to your fingertips today.
+            In this immersive virtual world, you can explore, shop, and interact
+            in ways that mirror real-life activities like buying property,
+            playing games, and running a business. Stellanex brings the future
+            to your fingertips today.
           </p>
         </div>
-        <div className="h-full flex flex-col items-end gap-5">
-          <div className="relative w-full grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:flex justify-end items-center gap-3">
-            {stellanexFeatures.map((feature, index) => (
-              <div
-                key={`stellanex-feature-${index}`}
-                className="z-10 relative md:absolute group w-full md:w-2/3 pt-[100%] xs:pt-[100%] sm:pt-[150%] md:pt-[75%] rounded-xl border-1 border-slate-700 md:opacity-0 md:data-[visible=true]:opacity-100 bg-cover bg-center transition-all duration-300 overflow-hidden"
-                data-visible={visibleFeature === index}
-                style={{
-                  backgroundImage: feature.background,
-                }}
-              >
-                <div className="absolute bottom-0 left-0 w-full xs:h-30 sm:h-28 md:h-fit flex flex-col gap-1 p-4 bg-white/15 backdrop-blur-md">
-                  <p className="text-sm md:text-[1rem] font-semibold text-white">
-                    {feature.title}
-                  </p>
-                  <p className="text-xs md:text-sm text-white/80">
-                    {feature.description}
-                  </p>
-                </div>
+        <div className="grow w-full grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-20">
+          {stellanexFeatures.map((feature, index) => (
+            <div
+              key={`service-${index}`}
+              className="group flex flex-col text-center"
+            >
+              <div class="mx-auto mb-6 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary bg-opacity-5 text-primary transition group-hover:bg-primary group-hover:bg-opacity-100 group-hover:text-white dark:bg-white dark:bg-opacity-5 dark:text-white dark:group-hover:bg-primary dark:group-hover:bg-opacity-100 md:mb-9 md:h-[90px] md:w-[90px] text-5xl">
+                {feature.icon}
               </div>
-            ))}
-            <div className="hidden md:block w-full md:w-2/3 pt-[75%] rounded-2xl animate-scaleUp from-red-400 via-pink-700 to-sky-400 bg-gradient-to-br"></div>
-          </div>
-          <div className="hidden w-full md:w-2/3 md:flex flex-nowrap justify-center gap-2">
-            {stellanexFeatures.map((feature, index) => (
-              <span
-                key={`active-feature-${index}`}
-                className="w-5 h-1 rounded-full bg-white/50 data-[active=true]:bg-white transition-all duration-700"
-                data-active={visibleFeature === index}
-              ></span>
-            ))}
-          </div>
+              <p className="mb-3 text-xl font-medium text-dark dark:text-white sm:text-2xl md:mb-5">
+                {feature.title}
+              </p>
+              <p className="text-base text-dark-text">{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
