@@ -1,28 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import { Button, Image } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 import DynamicWordSlider from "@/ui/DynamicWordSlider";
 
 function HeroSection() {
-  const bgImages = [
-    "url('/images/shopping_store.jpg')",
-    "url('/images/digital_game.jpg')",
-    "url('/images/digital_property.jpg')",
-    "url('/images/finance.jpg')",
-  ];
-  const [activeBackground, setActiveBackground] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const length = bgImages.length;
-      setActiveBackground((prev) => (prev + 1) % length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  });
   return (
     <section
       className="w-dvw relative flex justify-center items-center py-10"
@@ -50,7 +32,7 @@ function HeroSection() {
                 <i className="bi bi-arrow-right"></i>
               </span>
             </Button>
-            <Button className="bg-transparent rounded text-white border-1 text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
+            <Button className="bg-transparent rounded dark:text-white border-1 border-slate-500 dark:border-white text-sm lg:text-[1rem] xl:text-lg 2xl:text-xl lg:p-6">
               <span>
                 <i className="bi bi-play-fill"></i>
               </span>
@@ -69,7 +51,7 @@ function HeroSection() {
             playsInline
             disableRemotePlayback
             muted
-            className="rounded relative object-cover aspect-video w-full md:h-full"
+            className="rounded relative object-cover aspect-video w-full md:h-full bg-black"
           >
             <source src="/videos/hero_section.mp4" type="video/mp4" />
           </video>

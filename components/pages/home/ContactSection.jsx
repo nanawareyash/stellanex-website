@@ -3,10 +3,8 @@ import { Button, Divider, Link } from "@nextui-org/react";
 function ContactSection() {
   return (
     <section
-      className="relative w-dvw flex justify-center items-center bg-slate-900"
-      style={{
-        minHeight: "calc(100svh - 80px)",
-      }}
+      className="relative w-dvw flex justify-center items-center py-10 bg-white dark:bg-slate-950"
+      style={{ minHeight: "calc(100svh - 80px)" }}
     >
       <div className="w-[90%] lg:w-[85%] xl:[80%] grid grid-cols-1 md:grid-cols-2 gap-10 xl:gap-16 my-20">
         <div className="flex flex-col gap-2">

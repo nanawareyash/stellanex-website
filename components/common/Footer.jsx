@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import StellanexLogo from "@/images/logo_text.svg";
 import { Divider } from "@nextui-org/react";
+
+import StellanexLogo from "@/images/logo_text.svg";
 
 function Footer() {
   const footerLinks = [
@@ -55,48 +56,34 @@ function Footer() {
             Step Into the Future – Build, Play, and Grow in the Stellanex
             Metaverse.
           </p>
-          <div className="flex items-center space-x-5 text-2xl">
+          <div className="flex items-center space-x-3">
             <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
-              href={"#"}
-              target="_blank"
-            >
-              <i className="bi bi-facebook"></i>
-            </Link>
-            <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
+              className="text-2xl text-dark-text hover:text-white hover:bg-primary p-2 leading-none rounded-full transition-all duration-250"
               href={"#"}
               target="_blank"
             >
               <i className="bi bi-linkedin"></i>
             </Link>
             <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
+              className="text-2xl text-dark-text hover:text-white hover:bg-primary p-2 leading-none rounded-full transition-all duration-250"
               href={"#"}
               target="_blank"
             >
               <i className="bi bi-twitter-x"></i>
             </Link>
             <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
+              className="text-2xl text-dark-text hover:text-white hover:bg-primary p-2 leading-none rounded-full transition-all duration-250"
               href={"#"}
               target="_blank"
             >
               <i className="bi bi-youtube"></i>
             </Link>
             <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
+              className="text-2xl text-dark-text hover:text-white hover:bg-primary p-2 leading-none rounded-full transition-all duration-250"
               href={"#"}
               target="_blank"
             >
               <i className="bi bi-instagram"></i>
-            </Link>
-            <Link
-              className="text-dark-text hover:text-white transition-all duration-200"
-              href={"#"}
-              target="_blank"
-            >
-              <i className="bi bi-whatsapp"></i>
             </Link>
           </div>
         </div>

@@ -22,6 +22,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
         <link
+          href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         />
@@ -31,7 +35,7 @@ export default function RootLayout({ children }) {
           <header className="w-dvw sticky top-0 z-50">
             <Navbar />
           </header>
-          <main className="flex flex-col scroll-smooth pointer-events-auto bg-slate-950">
+          <main className="flex flex-col scroll-smooth pointer-events-auto bg-white dark:bg-slate-950">
             {children}
           </main>
           <footer className="w-dvw bg-slate-950 flex justify-center items-center">

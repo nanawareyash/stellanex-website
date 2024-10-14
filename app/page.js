@@ -1,9 +1,11 @@
+import { Fragment } from "react";
+
 import AboutSection from "@/pages/home/AboutSection";
 import ContactSection from "@/pages/home/ContactSection";
 import HeroSection from "@/pages/home/HeroSection";
+import NewsletterSection from "@/pages/home/NewsletterSection";
 import ServicesSection from "@/pages/home/ServicesSection";
 import TeamSection from "@/pages/home/TeamSection";
-import { Fragment } from "react";
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
       <ServicesSection />
       <TeamSection />
       <ContactSection />
+      <NewsletterSection />
     </Fragment>
   );
 }

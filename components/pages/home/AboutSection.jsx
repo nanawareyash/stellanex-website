@@ -1,14 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import { Divider } from "@nextui-org/react";
-
 import StellaNexCoin from "@/images/stellanex_coin.svg";
 
 function AboutSection() {
-  const [visibleFeature, setVisibleFeature] = useState(0);
-
   const stellanexFeatures = [
     {
       title: "Blockchain Security",
@@ -29,18 +23,9 @@ function AboutSection() {
     },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const length = stellanexFeatures.length;
-      setVisibleFeature((prev) => (prev + 1) % length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  });
-
   return (
     <section
-      className="relative w-dvw flex justify-center py-20 bg-slate-900"
+      className="relative w-dvw flex justify-center py-20 bg-slate-100 dark:bg-slate-900"
       style={{
         minHeight: "calc(100svh - 80px)",
       }}
@@ -54,7 +39,7 @@ function AboutSection() {
             Stellanex is India&apos;s pioneering Metaverse platform, built on
             the secure{" "}
             <span className="relative mx-1.5 whitespace-nowrap">
-              <span className="block absolute -inset-0.5 -skew-y-1 bg-primary"></span>
+              <span className="block absolute -inset-0.5 -skew-y-2 -skew-x-12 bg-primary"></span>
               <span className="text-white font-semibold relative">
                 Ethereum blockchain.
               </span>
