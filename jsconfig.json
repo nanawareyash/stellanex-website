@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/common/*": ["./components/common/*"],
-      "@/images/*": ["./public/images/*"],
-      "@/pages/*": ["./components/pages/*"],
-      "@/redux/*": ["./redux/*"],
-      "@/ui/*": ["./components/ui/*"],
-      "@/utils/*": ["./components/utils/*"]
+      "@/*": ["./*"]
     }
   }
 }

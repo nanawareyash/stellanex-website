@@ -1,21 +1,13 @@
-import { Fragment } from "react";
-
-import AboutSection from "@/pages/home/AboutSection";
-import ContactSection from "@/pages/home/ContactSection";
-import HeroSection from "@/pages/home/HeroSection";
-import NewsletterSection from "@/pages/home/NewsletterSection";
-import ServicesSection from "@/pages/home/ServicesSection";
-import TeamSection from "@/pages/home/TeamSection";
+import Footer from "@/components/layouts/Footer";
+import HeroSection from "@/components/sections/Home/HeroSection";
+import ProblemSection from "@/components/sections/Home/ProblemSection";
 
 export default function Home() {
   return (
-    <Fragment>
+    <>
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <TeamSection />
-      <ContactSection />
-      <NewsletterSection />
-    </Fragment>
+      <ProblemSection />
+      <Footer />
+    </>
   );
 }
