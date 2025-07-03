@@ -136,6 +136,36 @@
   @apply text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-pink-500;
 }
 
+/* Usage: <span class="text-stroke-[color]">Text</span> */
+/* Example: <span class="text-stroke-[#f00]">Red Stroke</span> */
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke-width: 2px;
+    text-stroke-width: 2px;
+    /* Default color: currentColor */
+    -webkit-text-stroke-color: white;
+    text-stroke-color: white;
+  }
+  /* Allow custom color via arbitrary value: text-stroke-[color] */
+  [class*="text-stroke-["] {
+    -webkit-text-stroke-width: 2px;
+    text-stroke-width: 2px;
+    /* Default color: currentColor, can be overridden by custom class */
+    -webkit-text-stroke-color: currentColor;
+    text-stroke-color: currentColor;
+  }
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
 /* Custom Scrollbar for Dark Theme */
 ::-webkit-scrollbar {
   width: 8px;
