@@ -1,9 +1,5 @@
 "use client";
 
-import DisconnectedToolsIcon from "@/components/svgs/DisconnectedToolsIcon";
-import InfrastructureGapIcon from "@/components/svgs/InfrastructureGapIcon";
-import IntegrationHellIcon from "@/components/svgs/IntegrationHellIcon";
-import SimulationGapIcon from "@/components/svgs/SimulationGapIcon";
 import ScrollTitle from "@/components/ui/scroll-title";
 import { AnimatePresence, motion } from "framer-motion";
 import { Pause, Play, RotateCcw, TrendingDown } from "lucide-react";
@@ -11,7 +7,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const problems = [
   {
-    icon: DisconnectedToolsIcon,
     title: "Disconnected Tools",
     description: "Too many disconnected tools (CAD, Simulation, Code, Control)",
     details:
@@ -25,7 +20,6 @@ const problems = [
     gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
   },
   {
-    icon: IntegrationHellIcon,
     title: "Integration Hell",
     description: "Endless time wasted integrating systems that don't talk",
     details:
@@ -39,7 +33,6 @@ const problems = [
     gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
   },
   {
-    icon: SimulationGapIcon,
     title: "Simulation Gap",
     description: "Simulation ≠ Reality — most robots never reach deployment",
     details:
@@ -53,7 +46,6 @@ const problems = [
     gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
   },
   {
-    icon: InfrastructureGapIcon,
     title: "Infrastructure Gap",
     description: "India's robotics ecosystem lacks deep-tech infrastructure",
     details:
