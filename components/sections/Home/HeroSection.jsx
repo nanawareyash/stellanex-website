@@ -3,7 +3,12 @@
 import RoboticArmBlueprint from "@/components/svgs/RoboticArmBlueprint";
 import { Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { fadeInUp, fadeInUpShort, fadeInUpSmall, scrollIndicator } from "@/lib/animations";
+import {
+  fadeInUp,
+  fadeInUpShort,
+  fadeInUpSmall,
+  scrollIndicator,
+} from "@/lib/animations";
 
 function HeroSection() {
   const { scrollY } = useScroll();
@@ -38,7 +43,7 @@ function HeroSection() {
         >
           <Sparkles className="h-4 w-4 text-blue-400" />
           <p className="text-xs sm:text-sm font-medium">
-            Build Real Robots. From Idea to Deployment
+            Unifying India&apos;s Robotics Future
           </p>
         </motion.div>
         <motion.h1
@@ -46,24 +51,38 @@ function HeroSection() {
           animate="visible"
           variants={fadeInUpSmall}
           custom={0.2}
-          className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold"
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl"
         >
-          <span>India&apos;s</span>{" "}
+          Design, Simulate, and Deploy Real Robots with <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-pink-500">
-            Robotics Intelligence
+            One Intelligent System
           </span>
-          <br />
-          <span>Revolution Begins Here</span>
         </motion.h1>
         <motion.p
           initial="hidden"
           animate="visible"
           variants={fadeInUpShort}
           custom={0.3}
-          className="text-sm sm:text-xl text-gray-300"
+          className="text-lg sm:text-xl text-gray-300 max-w-4xl"
         >
-          We're building the technology foundation that powers India&apos;s Next-Gen Robotics.<br /> Starting with intelligent software, and moving into real-world hardware.
+          We&apos;re building Xypher Engine — a unified robotics stack designed
+          for builders like you. Start with intelligent software. Deploy into
+          the real world. No duct tape, no guesswork.
         </motion.p>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUpShort}
+          custom={0.4}
+          className="flex flex-col sm:flex-row gap-4 pt-4"
+        >
+          <button className="px-8 py-3 bg-gradient-to-r from-red-500 via-orange-500 to-pink-500 text-white font-semibold rounded-full cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-300">
+            Join Waitlist
+          </button>
+          <button className="px-8 py-3 border border-gray-400 text-gray-300 font-semibold rounded-full cursor-pointer hover:bg-gray-800 hover:scale-105 transition-all duration-300">
+            Learn More
+          </button>
+        </motion.div>
       </motion.div>
       <div className="p-10">
         <div className="w-6 border-2 border-gray-400 flex justify-center rounded-full h-10">

@@ -12,12 +12,9 @@ const problems = [
     details:
       "Engineers juggle multiple tools that don't integrate, causing constant context switching and wasted time. Engineers spend 2-3 hours daily just on tool switching",
     impact: "40% of development time",
-    bgImage: {
-      mobile: "/images/problems/disconnected-tools.png",
-      desktop: "/images/problems/disconnected-tools.png"
-    },
-    bgClasses: "bg-cover bg-center sm:bg-bottom",
-    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
+    bgClasses:
+      "bg-[url('/images/problems/disconnected-tools.png')] bg-cover bg-center sm:bg-bottom",
+    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%",
   },
   {
     title: "Integration Hell",
@@ -25,12 +22,9 @@ const problems = [
     details:
       "Every connection needs custom adapters and maintenance. Plug-and-play becomes months of integration work. Average robotics project takes 3x longer due to integration issues",
     impact: "60% of project delays",
-    bgImage: {
-      mobile: "/images/problems/integration-hell-mobile.png",
-      desktop: "/images/problems/integration-hell-desktop.png"
-    },
-    bgClasses: "bg-cover bg-bottom",
-    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
+    bgClasses:
+      "bg-[url('/images/problems/integration-hell-mobile.png')] sm:bg-[url('/images/problems/integration-hell-desktop.png')] bg-cover bg-bottom",
+    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%",
   },
   {
     title: "Simulation Gap",
@@ -38,12 +32,9 @@ const problems = [
     details:
       "Simulations miss real-world complexities. The sim-to-real gap kills most promising prototypes. Only 3 out of 10 simulated robots work in real environments",
     impact: "70% of simulated robots fail in reality",
-    bgImage: {
-      mobile: "/images/problems/simulation-gap-mobile.png",
-      desktop: "/images/problems/simulation-gap-desktop.png"
-    },
-    bgClasses: "bg-cover bg-top",
-    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
+    bgClasses:
+      "bg-[url('/images/problems/simulation-gap-mobile.png')] sm:bg-[url('/images/problems/simulation-gap-desktop.png')] bg-cover bg-top",
+    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%",
   },
   {
     title: "Infrastructure Gap",
@@ -51,12 +42,9 @@ const problems = [
     details:
       "Limited hardware, expensive testing, and fragmented supply chains make development costly. Indian robotics startups face 5x higher infrastructure costs vs. global competitors",
     impact: "5x higher development costs",
-    bgImage: {
-      mobile: "/images/problems/infrastructure-gap-mobile.png",
-      desktop: "/images/problems/infrastructure-gap-desktop.png"
-    },
-    bgClasses: "bg-cover bg-center",
-    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%"
+    bgClasses:
+      "bg-[url('/images/problems/infrastructure-gap-mobile.png')] sm:bg-[url('/images/problems/infrastructure-gap-desktop.png')] bg-cover bg-center",
+    gradientClasses: "from-black/80 to-transparent bg-gradient-to-r to-40%",
   },
 ];
 
@@ -322,34 +310,23 @@ function ProblemSection() {
 
   return (
     <>
-      <style jsx>{`
-        .problem-card {
-          background-image: var(--bg-mobile);
-        }
-        
-        @media (min-width: 640px) {
-          .problem-card {
-            background-image: var(--bg-desktop);
-          }
-        }
-      `}</style>
-      <ScrollTitle className="bg-secondary">
+      <ScrollTitle className="bg-secondary-background">
         <motion.h1
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="font-bold leading-tight text-white"
           style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
             textShadow: "0 4px 20px rgba(0,0,0,0.3)",
           }}
         >
-          Why Robotics is <span className="text-gradient-red">Stuck</span>?
+          Where Robotics{" "}
+          <span className="text-gradient-red">Breaks Every Time</span>?
         </motion.h1>
       </ScrollTitle>
       <section
         ref={sectionRef}
-        className="relative w-full min-h-screen py-16 bg-secondary overflow-hidden"
+        className="relative w-full min-h-screen py-16 bg-secondary-background overflow-hidden"
       >
         <div className="container mx-auto max-w-7xl px-4 md:px-8 h-full">
           <motion.div
@@ -357,7 +334,7 @@ function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-48 relative z-20"
+            className="text-center my-48 relative z-20"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               The Four Critical Problems
@@ -389,19 +366,17 @@ function ProblemSection() {
                   style={{ width: "100vw" }}
                 >
                   <div className="w-full max-w-7xl mx-auto">
-                    <div 
-                      className={`problem-card relative h-[calc(100svh-7rem)] sm:h-[calc(100svh-15rem)] overflow-hidden flex flex-col-reverse sm:flex-row items-center rounded-2xl w-full bg-no-repeat border ${problem.bgClasses}`}
-                      style={{
-                        '--bg-mobile': `url('${problem.bgImage.mobile}')`,
-                        '--bg-desktop': `url('${problem.bgImage.desktop}')`
-                      }}
+                    <div
+                      className={`relative h-[calc(100svh-7rem)] sm:h-[calc(100svh-15rem)] overflow-hidden flex flex-col-reverse sm:flex-row items-center rounded-2xl w-full bg-no-repeat border ${problem.bgClasses}`}
                     >
                       <div className="absolute top-0 left-0 p-4 sm:p-8 z-10 flex flex-col">
                         <span className="text-transparent font-black text-[4rem] sm:text-[15rem] text-stroke leading-none">
                           {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
-                      <div className={`w-full h-full ${problem.gradientClasses} flex flex-col justify-end sm:p-8`}>
+                      <div
+                        className={`w-full h-full ${problem.gradientClasses} flex flex-col justify-end sm:p-8`}
+                      >
                         <div className="text-white space-y-3 sm:space-y-4 w-full sm:max-w-2/3 bg-white/5 backdrop-blur-md rounded-xl px-4 py-2 sm:p-6 border">
                           <h3 className="text-2xl md:text-4xl font-bold leading-tight">
                             {problem.title}
@@ -500,28 +475,27 @@ function ProblemSection() {
           </div>
         </div>
       </section>
-      <ScrollTitle className="bg-secondary">
-        <motion.h1
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="font-bold leading-tight text-red-500"
-          style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
-            textShadow: "0 4px 20px rgba(0,0,0,0.3)",
-          }}
-        >
-          These problem cost billions annually!
-        </motion.h1>
-      </ScrollTitle>
-      <ScrollTitle className="bg-secondary">
+      <ScrollTitle className="bg-secondary-background">
         <motion.h1
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="font-bold leading-tight text-white"
           style={{
-            fontSize: "clamp(3rem, 8vw, 6rem)",
+            textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+          }}
+        >
+          These problem cost{" "}
+          <span className="gradient-underline-red">billions</span> annually!
+        </motion.h1>
+      </ScrollTitle>
+      <ScrollTitle className="bg-secondary-background">
+        <motion.h1
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="font-bold leading-tight text-white"
+          style={{
             textShadow: "0 4px 20px rgba(0,0,0,0.3)",
           }}
         >

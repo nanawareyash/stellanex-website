@@ -6,32 +6,31 @@ import { useRef } from "react";
 
 const ScrollTitle = ({ children, className }) => {
   const containerRef = useRef(null);
-  
+
   // Track scroll progress within this component
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start center", "end start"],
   });
-  
-  // Transform scroll progress to opacity - fade out starting at 50% progress
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0]);
-  
-  // Transform scroll progress to scale - shrink along with fade out
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0.8]);
 
-  // Transform scroll progress to y position - move up as we scroll
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0, -50]);
-  
+  // Only use opacity transform to avoid flickering
+  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
+
   return (
-    <motion.div ref={containerRef} className={`w-full text-white text-center h-[250svh] ${className || ""}`}>
-      <div className="h-[100svh] sticky top-0 flex items-center justify-center container mx-auto">
+    <motion.div
+      ref={containerRef}
+      className={`w-full text-white text-center h-[100svh] sticky top-0 -z-10 ${
+        className || ""
+      }`}
+    >
+      <div className="h-full flex items-center justify-center container mx-auto">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUpSmall}
           custom={0.2}
-          style={{ opacity, scale, y }}
-          className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
+          style={{ opacity }}
+          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl will-change-transform transform-gpu"
         >
           {children}
         </motion.div>
